@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f5f7f8" />
+  <title>Absze — Outreach workspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <section class="login-screen" id="loginScreen">
+    <div class="login-art">
+      <div class="login-brand"><img src="assets/absze-logo.png" alt="Absze" class="login-brand-logo"></div>
+      <div class="art-orbit"></div><div class="art-orbit art-orbit-two"></div>
+      <div class="art-copy"><p class="eyebrow">ABSZE TEAM WORKSPACE</p><h1>Every lead.<br>Every follow-up.<br>Moving forward.</h1><p>A shared place for your team to organize prospects, track outreach, and see daily progress.</p></div>
+      <div class="art-bottom"><span class="avatar-stack"><i>MA</i><i>JV</i><i>LP</i></span><span>One workspace for the Absze team</span></div>
+    </div>
+    <div class="login-panel"><div class="login-form-wrap">
+      <p class="eyebrow">WELCOME BACK</p><h2>Sign in to Absze</h2><p class="muted">Enter your work email and password to continue.</p>
+      <form id="loginForm">
+        <label for="loginEmail">Work email</label><input id="loginEmail" type="email" autocomplete="username" placeholder="name@absze.com" required>
+        <label for="loginPassword">Password</label><div class="password-wrap"><input id="loginPassword" type="password" autocomplete="current-password" required><button class="show-pass" type="button" id="toggleLoginPassword">Show</button></div>
+        <div class="captcha-box"><label for="loginCaptcha"><span id="captchaQuestion">Solve this check</span></label><div class="captcha-entry"><input id="loginCaptcha" type="number" inputmode="numeric" autocomplete="off" aria-label="CAPTCHA answer" required><button type="button" id="refreshCaptcha" aria-label="New CAPTCHA">↻</button></div></div>
+        <div class="login-error" id="loginError" role="alert" hidden></div>
+        <div class="login-options"><label class="check-label"><input id="rememberLogin" type="checkbox" checked> Keep me signed in</label><span>Absze team access</span></div>
+        <button class="primary-btn sign-in" type="submit"><b>Sign in</b><span>→</span></button>
+      </form>
+      <p class="login-hint">Use the email assigned to your Absze team account.</p>
+    </div><div class="login-footer"><span>© Absze</span><span>Outreach workspace</span></div></div>
+  </section>
+  <div class="app-shell" id="appShell" hidden>
+    <aside class="sidebar" id="sidebar">
+      <button class="brand side-brand" data-page="overview" type="button"><img class="brand-logo" src="assets/absze-logo.png" alt="Absze"></button>
+      <div class="workspace-switch"><div class="workspace-icon">A</div><div><b id="workspaceName">Absze</b><small>Sales workspace</small></div><span class="chevron">⌄</span></div>
+      <div class="nav-label">WORKSPACE</div>
+      <nav class="main-nav">
+        <button class="nav-item active" data-page="overview"><span class="nav-icon">▦</span><span class="nav-copy">Overview</span></button>
+        <button class="nav-item" data-page="employee" data-role="employee"><span class="nav-icon">⌂</span><span class="nav-copy">My dashboard</span></button>
+        <button class="nav-item" data-page="leads"><span class="nav-icon">◉</span><span class="nav-copy">Lead tracker</span> <span class="nav-count" id="leadNavCount">0</span></button>
+        <button class="nav-item" data-page="tasks"><span class="nav-icon">✓</span><span class="nav-copy">Tasks</span> <span class="nav-count" id="taskNavCount">0</span></button>
+        <button class="nav-item" data-page="imports"><span class="nav-icon">⇧</span><span class="nav-copy">Imports</span></button>
+        <button class="nav-item" data-page="goals"><span class="nav-icon">◎</span><span class="nav-copy">Goals</span></button>
+        <button class="nav-item" data-page="settings"><span class="nav-icon">⚙</span><span class="nav-copy">Settings</span></button>
+      </nav>
+      <div class="nav-label team-label" data-role="admin">TEAM</div><nav class="main-nav"><button class="nav-item" data-page="team" data-role="admin"><span class="nav-icon">♧</span><span class="nav-copy">Team performance</span></button></nav>
+      <div class="sidebar-bottom"><div class="tour-card"><span class="help-icon">✦</span><b>Explore Absze</b><p>Take a guided tour of the main workspace tools.</p><button class="tour-link" id="startTourButton" type="button">Start product tour <span>→</span></button></div><button class="profile" id="profileMenu"><div class="profile-avatar" id="profileInitials">MA</div><div class="profile-info"><b id="profileName">Mohamed Ahnaf</b><small id="profileRole">Workspace admin</small></div><span class="profile-more">•••</span></button></div>
+    </aside>
+    <main class="main-area"><header class="topbar"><button class="mobile-menu" id="mobileMenu">☰</button><div class="breadcrumb">Workspace <span>/</span> <b id="crumbPage">Overview</b></div><div class="top-actions"><button class="search-shortcut" id="searchButton">⌕ <span>Search</span><kbd>⌘ K</kbd></button><button class="icon-button" id="notificationsButton" title="Notifications" aria-label="Open notifications">♧<i></i></button><button class="top-avatar" id="topProfileButton" title="Profile" aria-label="Open profile">MA</button></div></header>
+      <div class="content" id="content"></div>
+    </main>
+  </div>
+  <div class="toast" id="toast"></div>
+  <input type="file" id="csvInput" accept=".csv,.tsv,.txt,.xlsx,.xls,.xlsb,.pdf,.docx,.pptx,.odt,.ods,.odp,.rtf,text/csv,text/tab-separated-values,application/pdf" hidden>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

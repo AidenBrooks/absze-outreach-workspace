@@ -1,0 +1,10 @@
+{
+  "rules": {
+    "absze": {
+      "workspace": {
+        ".read": "auth != null && (auth.token.email == 'ahnaf.aiden@gmail.com' || auth.token.email == 'jeeva801280@gmail.com' || auth.token.email == 'laluprasath23@gmail.com')",
+        ".write": "auth != null && (auth.token.email == 'ahnaf.aiden@gmail.com' || auth.token.email == 'jeeva801280@gmail.com' || auth.token.email == 'laluprasath23@gmail.com')"
+      }
+    }
+  }
+}
