@@ -16,6 +16,10 @@ With `firebase-config.js` left blank, the app uses prototype sign-in. Password h
 
 The app only permits the three listed team emails through its sign-in screen. Imported source files are not uploaded; extracted prospect records and import history sync through Firebase.
 
+## Admin device notifications
+
+After configuring Firebase team sharing, sign in as Mohamed Ahnaf and open Settings > Team activity alerts. Enable notifications separately on every laptop or phone and allow the browser permission. Alerts cover Jeeva and Lalu signing in or out, starting or ending a work session, and starting or ending a break. The Absze page must remain open and connected to Firebase; browsers and mobile operating systems may suspend background tabs. Alerts after the browser is fully closed require a Firebase Cloud Messaging setup with a server-side sender, which this static prototype does not include.
+
 ## Local preview
 
 Open `index.html` or serve this folder locally. Firebase sign-in and shared data require an internet connection and Firebase setup.

@@ -53,3 +53,5 @@
 .attendance-status.on-break{background:#fff0df;color:#a45d26}
 .attendance-self .session-timer{font-size:12px}
 @media(max-width:760px){.page-head .head-actions [data-action="start-break"],.page-head .head-actions [data-action="end-break"]{display:inline-flex!important;align-items:center;justify-content:center}}
+
+.mobile-nav-close{display:none}@media(max-width:760px){.mobile-nav-close{display:grid;place-items:center;position:absolute;top:22px;right:13px;width:32px;height:32px;border:1px solid #e3e9e5;border-radius:8px;background:#fff;color:#44544d;font-size:22px;line-height:1;z-index:12;cursor:pointer}.sidebar{padding-top:18px}.side-brand{padding-right:40px}.notification-enable{justify-self:start}.notification-status{font-size:10px;line-height:1.5;color:#3c765f}}
